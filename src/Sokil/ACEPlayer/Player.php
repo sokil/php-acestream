@@ -60,8 +60,10 @@ class Player
         return $this;
     }
     
-    public function __toString()
+    public function render()
     {
+        ob_start();
+        
         $config = array();
         
         /**
@@ -86,5 +88,12 @@ class Player
         var player = new AceStreamPlayer(document.getElementById("acestream-player"), <?php echo json_encode($config); ?>);
         </script>
         <?php
+        
+        return ob_get_clean();
+    }
+    
+    public function __toString()
+    {
+        return $this->render();
     }
 }
