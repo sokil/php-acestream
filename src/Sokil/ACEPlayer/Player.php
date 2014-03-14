@@ -4,18 +4,26 @@ namespace Sokil\ACEPlayer;
 
 class Player
 {    
-    private $_config;
+    private $_config = array(
+        'debug'     => false,
+        'media'     => null,
+        'height'    => '470px',
+    );
     
     private $_notInstalledPlayerMessage;
     
-    public function __construct() {
-        
-        // configure widget
-        $this->_config = array(
-            'debug'     => false,
-            'media'     => null,
-            'height'    => '470px',
-        );
+    /**
+     * 
+     * @param array $config params of config equivalent to setter names
+     */
+    public function __construct(array $config = null) 
+    {
+        foreach($config as $param => $value) {
+            $methodName = 'set' . $param;
+            if(method_exists($this, $methodName)) {
+                call_user_func(array($this, $methodName), $value);
+            }
+        }
     }
     
     public function setNotInstalledPlayerMessage($message)
