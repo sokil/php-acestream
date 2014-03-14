@@ -1,0 +1,13 @@
+{
+    "name": "sokil/php-acestream",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dmytro Sokil",
+            "email": "dmytro.sokil@gmail.com"
+        }
+    ],
+    "require": {
+
+    }
+}
