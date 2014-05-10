@@ -34,7 +34,7 @@ Call widget in your template:
 Usage in Yii Framework
 ----------------------
 
-Register YiiPlayer class on add namespace 'vendor' somewhere in entry point file.
+Add namespace 'vendor' somewhere in entry point file.
 ```
 define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/../application'));
 Yii::setPathOfAlias('vendor', APPLICATION_PATH . '/../vendor/');
