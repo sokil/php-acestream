@@ -16,7 +16,7 @@ class Player
      * 
      * @param array $config params of config equivalent to setter names
      */
-    public function __construct(array $config = null) 
+    public function __construct(array $config = array()) 
     {
         foreach($config as $param => $value) {
             $methodName = 'set' . $param;
