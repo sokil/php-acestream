@@ -9,35 +9,17 @@ Installation
 }
 ```
 
-Usage
------
+Common Usage
+------------
 
-Incluging JS scripts can be done directry or through some asset manager.
-Direct inclusion:
+Incluging JS scripts can be done directry or through some asset manager. Direct inclusion:
 ```
 <script type="text/javascript" src="/js/core.js" />
 <script type="text/javascript" src="/js/player.js" />
 <script type="text/javascript" src="/js/ext.js" />
 ```
-Inclusion through Yii's asset manager in config file:
-```
-array(
-    'components'        => array(
-        'clientScript' => array(
-            'packages' => array(
-                'bootstrap' => array(
-                    'baseUrl' => '/path/to/js',
-                    'js'      => array('core.js', 'player.js', 'ext.js'),
-                    'css'     => array(),
-                    'depends' => array('jquery'),
-                ),
-            ),
-        ),
-    ),
-)
-```
 
-Common usage:
+Call widget in your template:
 ```
 <?php echo new \Sokil\ACEPlayer\Player(array(
     'debug' => true,
@@ -49,14 +31,21 @@ Common usage:
 ); ?>
 ```
 
-Yii Framework template:
+Usage in Yii Framework
+----------------------
 
 Register YiiPlayer class on add namespace 'vendor' somewhere in entry point file.
 ```
 define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/../application'));
 Yii::setPathOfAlias('vendor', APPLICATION_PATH . '/../vendor/');
+
+Register static files in your controller
 ```
-Call widget
+Yii::import('vendor.sokil.php-acestream.src.Sokil.ACEPlayer.YiiPlayer');
+YiiPlayer::registerStaticFiles();
+```
+
+Call widget in template
 ```
 <?php $this->widget('vendor.sokil.php-acestream.src.Sokil.ACEPlayer.YiiPlayer', array(
     'debug' => true,

@@ -27,21 +27,20 @@ class YiiPlayer extends \CWidget
         $this->_player->{$name} = $value;
     }
     
+    public static function registerStaticFiles()
+    {
+        $path = \Yii::app()->clientScript
+            ->getAssetManager()
+            ->publish('../../../js');
+
+        \Yii::app()->clientScript->registerScriptFile($path . '/code.js');
+        \Yii::app()->clientScript->registerScriptFile($path . '/player.js');
+        \Yii::app()->clientScript->registerScriptFile($path . '/ext.js');
+    }
+    
     public function run()
     {
         static $jsloaded = false;
-        
-        if(!$jsloaded) {
-            $jsloaded = true;
-            
-            $path = \Yii::app()->clientScript
-                ->getAssetManager()
-                ->publish('../../../js');
-
-            \Yii::app()->clientScript->registerScriptFile($path . '/code.js');
-            \Yii::app()->clientScript->registerScriptFile($path . '/player.js');
-            \Yii::app()->clientScript->registerScriptFile($path . '/ext.js');
-        }
         
         echo $this->_player;
     }
