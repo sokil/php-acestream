@@ -40,8 +40,6 @@ class YiiPlayer extends \CWidget
     
     public function run()
     {
-        static $jsloaded = false;
-        
         echo $this->_player;
     }
 }
