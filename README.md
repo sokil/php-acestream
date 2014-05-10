@@ -34,10 +34,11 @@ Call widget in your template:
 Usage in Yii Framework
 ----------------------
 
-Add namespace 'vendor' somewhere in entry point file.
+Add namespace 'vendor' somewhere in entry point file to register composer's vedror dir.
 ```
 define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/../application'));
 Yii::setPathOfAlias('vendor', APPLICATION_PATH . '/../vendor/');
+```
 
 Register static files in your controller
 ```
