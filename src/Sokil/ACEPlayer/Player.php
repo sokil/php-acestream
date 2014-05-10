@@ -5,12 +5,11 @@ namespace Sokil\ACEPlayer;
 class Player
 {    
     private $_config = array(
-        'debug'     => false,
-        'media'     => null,
-        'height'    => '470px',
+        'debug'                     => false,
+        'media'                     => null,
+        'height'                    => '470px',
+        'notInstalledPlayerMessage' => null,
     );
-    
-    private $_notInstalledPlayerMessage;
     
     /**
      * 
@@ -18,17 +17,24 @@ class Player
      */
     public function __construct(array $config = array()) 
     {
-        foreach($config as $param => $value) {
-            $methodName = 'set' . $param;
-            if(method_exists($this, $methodName)) {
-                call_user_func(array($this, $methodName), $value);
-            }
+        foreach($config as $name => $value) {
+            $this->{$name} = $value;
+        }
+    }
+    
+    public function __set($name, $value)
+    {
+        $methodName = 'set' . $name;
+        if(method_exists($this, $methodName)) {
+            call_user_func(array($this, $methodName), $value);
+        } else {
+            $this->_config[$name] = $value;
         }
     }
     
     public function setNotInstalledPlayerMessage($message)
     {
-        $this->_notInstalledPlayerMessage = $message;
+        $this->_config['notInstalledPlayerMessage'] = $message;
         return $this;
     }
     
@@ -82,7 +88,7 @@ class Player
         // add html code
         ?>
         <div id="acestream-player" style="height:<?php echo $this->_config['height']; ?>; text-align: center;">
-            <?php echo $this->_notInstalledPlayerMessage; ?>
+            <?php echo $this->_config['notInstalledPlayerMessage']; ?>
         </div>
         <script type="text/javascript">
         var player = new AceStreamPlayer(document.getElementById("acestream-player"), <?php echo json_encode($config); ?>);

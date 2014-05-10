@@ -29,11 +29,11 @@ class YiiPlayer extends \CWidget
     
     public static function registerStaticFiles()
     {
-        $path = \Yii::app()->clientScript
+        $path = \Yii::app()
             ->getAssetManager()
-            ->publish('../../../js');
+            ->publish(__DIR__ . '/../../../js');
 
-        \Yii::app()->clientScript->registerScriptFile($path . '/code.js');
+        \Yii::app()->clientScript->registerScriptFile($path . '/core.js');
         \Yii::app()->clientScript->registerScriptFile($path . '/player.js');
         \Yii::app()->clientScript->registerScriptFile($path . '/ext.js');
     }
