@@ -27,7 +27,7 @@ array(
             'packages' => array(
                 'bootstrap' => array(
                     'baseUrl' => '/path/to/js',
-                    'js'      => array('core.js', 'player.js., 'ext.js'),
+                    'js'      => array('core.js', 'player.js', 'ext.js'),
                     'css'     => array(),
                     'depends' => array('jquery'),
                 ),
