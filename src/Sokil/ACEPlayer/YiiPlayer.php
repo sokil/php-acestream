@@ -22,6 +22,11 @@ class YiiPlayer extends \CWidget
         return $result;
     }
     
+    public function __set($name, $value)
+    {
+        $this->_player->{$name} = $value;
+    }
+    
     public function run()
     {
         echo $this->_player;
