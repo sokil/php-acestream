@@ -1,5 +1,7 @@
 <?php
 
+use \Sokil\ACEPlayer\Player;
+
 class YiiPlayer extends \CWidget
 {
     private $_player;
@@ -8,7 +10,7 @@ class YiiPlayer extends \CWidget
     {
         parent::__construct($owner);
         
-        $this->_player = new \Sokil\ACEPlayer\Player;
+        $this->_player = new Player;
     }
     
     public function __call($name, $arguments) {
