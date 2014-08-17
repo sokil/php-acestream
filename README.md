@@ -13,14 +13,14 @@ Common Usage
 ------------
 
 Incluging JS scripts can be done directry or through some asset manager. Direct inclusion:
-```
+```html
 <script type="text/javascript" src="/js/core.js" />
 <script type="text/javascript" src="/js/player.js" />
 <script type="text/javascript" src="/js/ext.js" />
 ```
 
 Call widget in your template:
-```
+```php
 <?php echo new \Sokil\ACEPlayer\Player(array(
     'debug' => true,
     'media' => array(
@@ -35,19 +35,19 @@ Usage in Yii Framework
 ----------------------
 
 Add namespace 'vendor' somewhere in entry point file to register composer's vedror dir.
-```
+```php
 define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/../application'));
 Yii::setPathOfAlias('vendor', APPLICATION_PATH . '/../vendor/');
 ```
 
 Register static files in your controller
-```
+```php
 Yii::import('vendor.sokil.php-acestream.src.Sokil.ACEPlayer.YiiPlayer');
 YiiPlayer::registerStaticFiles();
 ```
 
 Call widget in template
-```
+```php
 <?php $this->widget('vendor.sokil.php-acestream.src.Sokil.ACEPlayer.YiiPlayer', array(
     'debug' => true,
     'media' => array(
