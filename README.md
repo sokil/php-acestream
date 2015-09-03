@@ -1,6 +1,9 @@
 ACE Stream Widget
 =================
 
+[![Latest Stable Version](https://poser.pugx.org/sokil/php-acestream/v/stable.png)](https://packagist.org/packages/sokil/php-acestream)
+[![Total Downloads](http://img.shields.io/packagist/dt/sokil/php-acestream.svg)](https://packagist.org/packages/sokil/php-acestream)
+
 Installation
 ------------
 ```
