@@ -1,7 +1,7 @@
 ACE Stream Widget
 =================
 
-Client for torrent player [AceStream](http://www.acestream.org/en/)
+Client for torrent player [AceStream](http://www.acestream.org/en/). This project is not maintainer and may be in not actual state.
 
 [![Latest Stable Version](https://poser.pugx.org/sokil/php-acestream/v/stable.png)](https://packagist.org/packages/sokil/php-acestream)
 [![Total Downloads](http://img.shields.io/packagist/dt/sokil/php-acestream.svg)](https://packagist.org/packages/sokil/php-acestream)
